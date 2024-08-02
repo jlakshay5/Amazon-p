@@ -69,6 +69,5 @@ export function renderpaymentSummary(){
 
   document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHTML;
 
-  console.log(8005/100);
 
 }
