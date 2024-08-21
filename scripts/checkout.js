@@ -9,13 +9,20 @@ import {loadProductsFetch} from '../data/products.js';
 import { loadCart } from '../data/cart.js';
 
 async function loadPage(){
-
-  await loadProductsFetch();
-  await new Promise((resolve)=>{
-    loadCart(()=>{
-      resolve();
+  try{
+    // throw 'error1';
+    await loadProductsFetch();
+    const val = await new Promise((resolve,reject)=>{
+      // throw 'error';
+      loadCart(()=>{
+        // reject('er');
+        resolve();
+      });
     });
-  });
+  }
+  catch(error){
+    console.log('EROOOOOOOOR')
+  }
   renderOrderSummary();
   renderpaymentSummary(); 
 
